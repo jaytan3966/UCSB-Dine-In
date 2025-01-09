@@ -59,18 +59,29 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        left: {
+          '0%': {transform: 'translateX(-40%)'},
+          '100%': {transform: 'translateX(0%)'},
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+        fall: {
+          '0%': {transform: 'translateY(-50%)',opacity: '0'},
+          '100%': {transform: 'translateX(0%)', opacity: '1'},
         },
+        right: {
+          '0%': { transform: 'translateX(40%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        appear: {
+          '0%': { opacity: '0', },
+          '100%': { opacity: '1', },
+        }
+
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        left: 'left 2.5s ease-out',
+        fall: 'fall forwards 3s, ease-out',
+        right: 'right 2.5s ease-out',
+        appear: 'appear 3s ease-out',
       },
     },
   },
