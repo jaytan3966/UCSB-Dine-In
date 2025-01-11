@@ -21,17 +21,21 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon.png" />
       </head>
+<<<<<<< HEAD
       <body
         style={{ backgroundColor: "white" }}
         className="bg-opacity-40min-h-[100vh] text-black"
       >
+=======
+      <body className="bg-opacity-40 min-h-[100vh] text-black">
+>>>>>>> 26d5a7f171bfbbf11f1b7d72788fce7c1565d802
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main>{children}</main>
+          {children}
         </ThemeProvider>
       </body>
     </html>
