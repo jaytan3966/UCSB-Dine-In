@@ -4,6 +4,8 @@ import { createClient } from "@/utils/supabase/server";
 export async function POST(req: NextRequest) {
   const body = await req.json();
 
+  console.log("Body: ", body);
+
   const supabase = await createClient();
   const { data: reviews } = await supabase.from("reviews").insert(body);
 
