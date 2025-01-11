@@ -7,6 +7,7 @@ import { Intro } from "./components/intro";
 import { Navbar } from "./components/navbar";
 import Reviews from "./components/reviewsGrid";
 import { ReviewProps } from "./components/reviewsGrid";
+import Halls from "./components/Halls";
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement | null>(null);
@@ -42,13 +43,14 @@ export default function Home() {
 
       <main className="flex flex-col justify-center items-center">
         <Intro topRef={topRef} diningRef={diningRef} aboutRef={aboutRef}/>
-        <hr className="w-[100vw] border-[#1d2f54]"/>
+        
 
-        <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
+        <h1 className="font-semibold text-2xl p-2 pt-6 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
         <Reviews reviews={reviews}/>
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={diningRef}>Dining Commons</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
+        <Halls />
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={aboutRef}>About</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
         <h1>hello</h1>
