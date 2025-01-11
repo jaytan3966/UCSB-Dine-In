@@ -10,11 +10,27 @@ const MenuPage = () => {
     const [menu, setMenu] = useState<MenuItem[] | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const [currentTime, setCurrentTime] = useState<string | null>(null);
 
-    // Example date, dining common, and meal code
-    const date = '2025-01-11'; 
-    const diningCommonCode = 'carrillo'; // For example, change as per your needs
-    const mealCode = 'dinner'; // Adjust this value accordingly
+    // const date = '2025-01-11'; 
+    const diningCommonCode = 'carrillo'; 
+    let mealCode = ''; 
+    
+    const now = new Date();
+    const date = now.toLocaleDateString('en-CA');
+    const time = now.getHours();
+    const day = now.getDay();
+
+    if (day == 0 || day == 6) {
+        if (time <= 2) { mealCode = 'brunch'}
+        else { mealCode = 'dinner'}
+    }
+    else {
+        if (time <= 10) { mealCode = 'breakfast'}
+        else if (time <= 3) { mealCode = 'lunch'}
+        else { mealCode = 'dinner'}
+    }
+
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -42,7 +58,7 @@ const MenuPage = () => {
 
     return (
         <div>
-            <h1>Dining Menu</h1>
+            <h1>Dining Menu {day} </h1>
             {menu ? (
                 <ul>
                     {menu.map((item, index) => (
