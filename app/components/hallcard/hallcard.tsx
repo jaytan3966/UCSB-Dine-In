@@ -12,13 +12,8 @@ export default function HallCard({ name, picture, text }: Hall) {
   return (
     <Link href="/Hall">
       <div className={styles.card}>
-      <Image
-        src={picture}
-        alt={name}
-        width={128}
-        height={128}
-        className="rounded-full"
-      />
+      <img className={styles["card-image"]} src={picture} alt={name}>
+      </img>
         <h2 className={styles["card-title"]}>{name}</h2>
         <p className={styles["card-text"]}>{text}</p>
       </div>

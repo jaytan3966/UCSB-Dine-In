@@ -7,7 +7,7 @@ import { Intro } from "./components/intro";
 import { Navbar } from "./components/navbar";
 import Reviews from "./components/reviewsGrid";
 import { ReviewProps } from "./components/reviewsGrid";
-import Halls from "./components/Halls";
+import Halls from "./components/halls";
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement | null>(null);
