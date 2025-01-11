@@ -21,6 +21,7 @@ export default function Home() {
         const response = await fetch("/api/routing");
         if (response.ok) {
           const reviewz = await response.json();
+          reviewz.sort((i: ReviewProps, j: ReviewProps) => j.rating - i.rating);
           setReviews(reviewz);
         } else {
           console.error("Failed to fetch reviews");
