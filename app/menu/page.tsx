@@ -16,9 +16,7 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<string | null>(null);
 
-  // const date = '2025-01-11';
-  //const diningCommonCode = 'carrillo';
-  let mealCode = "dinner";
+  let mealCode = "";
 
   const now = new Date();
   const date = now.toLocaleDateString("en-CA");
@@ -27,19 +25,13 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
   const day = now.getDay();
 
   if (day == 0 || day == 6) {
-    if (time < 14) {
-      mealCode = "brunch";
-    } else {
-      mealCode = "dinner";
-    }
-  } else {
-    if (time < 10) {
-      mealCode = "breakfast";
-    } else if (time < 15) {
-      mealCode = "lunch";
-    } else {
-      mealCode = "dinner";
-    }
+    if (time < 14) { mealCode = "brunch"; } 
+    else if ( time < 21) { mealCode = "dinner" }
+  } 
+  else {
+    if (time < 10) { mealCode = "breakfast" } 
+    else if (time < 15) { mealCode = "lunch" } 
+    else if (time < 21) { mealCode = "dinner" }
   }
 
   useEffect(() => {
