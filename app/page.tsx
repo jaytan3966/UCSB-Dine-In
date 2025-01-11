@@ -1,15 +1,18 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import { useRef } from "react";
 import React from "react";
 import { Intro } from "./components/intro";
 import { Navbar } from "./components/navbar";
-import { Card } from "./components/reviewCard";
+import Reviews from "./components/reviewsGrid";
+import { ReviewProps } from "./components/reviewsGrid";
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement | null>(null);
   const diningRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
+
+  const [reviews, setReviews] = useState<ReviewProps[]>([]);
 
   return (
     <>
@@ -23,7 +26,7 @@ export default function Home() {
 
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
-        <Card />
+        {/* <Reviews reviews={reviews}/> */}
         <h1>hello</h1>
         <h1>hello</h1>
         <h1>hello</h1>
