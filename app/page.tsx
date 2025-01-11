@@ -23,6 +23,7 @@ export default function Home() {
         if (response.ok) {
           let reviewz = await response.json();
           reviewz.sort((i: ReviewProps, j: ReviewProps) => j.rating - i.rating);
+          reviewz = reviewz.slice(0,5);
 
           setReviews(reviewz);
         } else {

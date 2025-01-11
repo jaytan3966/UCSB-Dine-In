@@ -6,6 +6,8 @@ export interface ReviewProps {
   username: string;
   rating: number;
   description: string;
+  diningcommon: string;
+
 }
 
 export default function Reviews({reviews}: {reviews: ReviewProps[]}) {
@@ -20,6 +22,7 @@ export default function Reviews({reviews}: {reviews: ReviewProps[]}) {
           username={review.username}
           rating={review.rating}
           description={review.description}
+          diningcommon={review.diningcommon}
         />
       ))}
     </div>
