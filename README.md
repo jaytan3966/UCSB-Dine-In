@@ -4,6 +4,8 @@ Essentially Yelp for UCSB Dining
 
 ## MVP Features
 
+Potential idea for format: When displaying the menu items for the day, be able to click on each item to access the reviews for those items. Maybe also have an option to got a page with all the possible menu items listed so u can see reviews for all items, even the unavailable ones.
+
 ### Reviews
 
 Allow users to leave reviews of certain food items from the dining halls. These reviews should be added to the database
