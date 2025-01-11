@@ -2,7 +2,7 @@ import Image from "next/image";
 import { handleScrollDown } from "./navbar";
 import { NavbarProps } from "./navbar";
 
-export const Intro = ({topRef, reviewRef, menuRef, aboutRef} : NavbarProps) => {
+export const Intro = ({topRef, diningRef, aboutRef} : NavbarProps) => {
     return (
         <div className="grid grid-cols-2 lg:grid-cols-3 h-[91vh] text-center">
             <div className="animate-left flex flex-col justify-center">
