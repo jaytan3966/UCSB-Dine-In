@@ -4,6 +4,7 @@ import { useRef } from "react";
 import React from "react";
 import { Intro } from "./components/intro";
 import { Navbar } from "./components/navbar";
+import { Card } from "./components/reviewCard";
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement | null>(null);
@@ -22,7 +23,7 @@ export default function Home() {
 
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
-        <h1>hello</h1>
+        <Card />
         <h1>hello</h1>
         <h1>hello</h1>
         <h1>hello</h1>
