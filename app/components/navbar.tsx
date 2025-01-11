@@ -1,4 +1,4 @@
-interface NavbarProps {
+export interface NavbarProps {
   topRef: React.RefObject<HTMLDivElement | null>;
   diningRef: React.RefObject<HTMLDivElement | null>;
   aboutRef: React.RefObject<HTMLDivElement | null>;
