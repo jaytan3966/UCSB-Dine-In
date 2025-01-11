@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "./HallCard.module.css";
-import Image from "next/image";
 
 interface Hall {
   name: string;
@@ -10,7 +9,7 @@ interface Hall {
 
 export default function HallCard({ name, picture, text }: Hall) {
   return (
-    <Link href="/Hall">
+    <Link href={"/hall"}>
       <div className={styles.card}>
       <img className={styles["card-image"]} src={picture} alt={name}>
       </img>
