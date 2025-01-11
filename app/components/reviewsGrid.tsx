@@ -8,10 +8,10 @@ export interface ReviewProps {
   description: string;
 }
 
-export default async function Reviews(reviews: ReviewProps[]) {
+export default function Reviews({reviews}: {reviews: ReviewProps[]}) {
 
   return (
-    <ul>
+    <div className="grid grid-cols-5">
       {reviews?.map((review) => (
         <Card
           key={review.id}
@@ -22,6 +22,6 @@ export default async function Reviews(reviews: ReviewProps[]) {
           description={review.description}
         />
       ))}
-    </ul>
+    </div>
   );
 }

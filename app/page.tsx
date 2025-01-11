@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useRef } from "react";
 import React from "react";
@@ -14,6 +15,23 @@ export default function Home() {
 
   const [reviews, setReviews] = useState<ReviewProps[]>([]);
 
+  useEffect(() => {
+    async function getReviews(){
+      try {
+        const response = await fetch("/api/routing");
+        if (response.ok) {
+          const reviewz = await response.json();
+          setReviews(reviewz);
+        } else {
+          console.error("Failed to fetch reviews");
+        }
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    }
+    getReviews();
+    console.log(reviews);
+  }, [])
   return (
     <>
       <header className="sticky top-0 z-10">
@@ -26,44 +44,9 @@ export default function Home() {
 
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
-        {/* <Reviews reviews={reviews}/> */}
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
+        <Reviews reviews={reviews}/>
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={diningRef}>Dining Commons</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={aboutRef}>About</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
         <h1>hello</h1>
