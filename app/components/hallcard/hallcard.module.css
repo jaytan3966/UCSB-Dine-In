@@ -1,0 +1,68 @@
+/* Card.module.css */
+
+/* Card container styles */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  max-width: 25vw;
+  background-color: #c1dce9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Card image styling */
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+  transition: opacity 0.3s ease;
+}
+
+.card-image:hover {
+  opacity: 0.85;
+}
+
+/* Card title */
+.card-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 15px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.card-title:hover {
+  color: #007BFF; /* Subtle color change on hover */
+}
+
+/* Card text */
+.card-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Optional: Add a gradient effect to the card */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom right, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.05));
+  border-radius: 12px;
+  z-index: -1;
+}

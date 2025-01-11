@@ -21,7 +21,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon.png" />
       </head>
-      <body className="bg-opacity-40 min-h-[100vh] text-black">
+      <body
+        style={{ backgroundColor: "white" }}
+        className="bg-opacity-40min-h-[100vh] text-black"
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
