@@ -15,7 +15,7 @@ export const handleScrollDown = (ref: React.RefObject<HTMLDivElement | null>) =>
 }
 
 const scrollHome = () => {
-    window.scrollTo({top:0,behavior: "smooth",});
+    window.scrollTo({top:0, behavior: "smooth",});
 }
 
 export const Navbar = ({topRef, reviewRef, menuRef, aboutRef} : NavbarProps) => {
