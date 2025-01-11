@@ -36,3 +36,7 @@ Let other people reply to reviews
 ### User log in
 
 Keep track of posted reviews. Gain title / status / profile decoration when a user posts a lot of reviews (like Yelp)
+
+### Calorie Counter
+
+Add nutrition facts for each food item
