@@ -17,11 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/icon.png"/>
+        <link rel="icon" href="/icon.png" />
       </head>
-      <body style={{ backgroundColor: 'white' }} className="bg-opacity-40min-h-[100vh] text-black">
+      <body
+        style={{ backgroundColor: "white" }}
+        className="bg-opacity-40min-h-[100vh] text-black"
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
