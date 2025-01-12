@@ -40,7 +40,7 @@ export default function About() {
           <div className="carousel-inner">
             <div className="carousel-item active flex justify-center items-center">
               <Image
-                className="d-block"
+                className="d-block rounded"
                 src="/jayden.jpeg"
                 alt="First slide"
                 width={400}
@@ -49,7 +49,7 @@ export default function About() {
             </div>
             <div className="carousel-item">
               <Image
-                className="d-block"
+                className="d-block rounded"
                 src="/jord.jpeg"
                 alt="Second slide"
                 width={400}
@@ -58,7 +58,7 @@ export default function About() {
             </div>
             <div className="carousel-item">
               <Image
-                className="d-block"
+                className="d-block rounded"
                 src="/phong.jpeg"
                 alt="Third slide"
                 width={400}
@@ -67,7 +67,7 @@ export default function About() {
             </div>
             <div className="carousel-item">
               <Image
-                className="d-block"
+                className="d-block rounded"
                 src="/clint.jpeg"
                 alt="Fourth slide"
                 width={400}
