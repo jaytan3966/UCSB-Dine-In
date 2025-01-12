@@ -94,6 +94,7 @@ export default function ReviewCard({
   rating,
 }: ReviewCardProps) {
   const [descriptionSubmitted, setDescription] = useState("");
+  const [usernameSubmitted, setUsername] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
 
@@ -101,6 +102,10 @@ export default function ReviewCard({
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setDescription(e.target.value);
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -127,10 +132,13 @@ export default function ReviewCard({
         throw uploadError;
       }
 
-      const { data: publicURL } = await supabase.storage
+      const { data: publicURL, error: urlError } = await supabase.storage
         .from("images")
         .getPublicUrl(fileName);
 
+      if (urlError) {
+        throw urlError;
+      }
       food = food?.replaceAll(/%20/g, " ");
       diningHall = diningHall?.replaceAll(/%20/g, " ");
 
@@ -145,6 +153,7 @@ export default function ReviewCard({
           diningcommon: diningHall,
           rating: rating,
           images: fileName,
+          username: usernameSubmitted,
         }),
       });
 
@@ -156,6 +165,7 @@ export default function ReviewCard({
 
       // Reset form state
       setDescription("");
+      setUsername("");
       setSelectedFile(null);
       window.location.href = `/hall/${diningHall}`;
     } catch (error) {
@@ -177,7 +187,19 @@ export default function ReviewCard({
       </div>
       <div className={styles.card}>
         <div className="flex space-x-2">
-          <h2 className={styles["card-title"]}>Submit Review</h2>
+          {/* <h2 className={styles["card-title"]}>Submit Review</h2> */}
+          <div className="form-group">
+            <label htmlFor="formFileSm" className="form-label">
+              Name
+            </label>
+            <input
+              type="name"
+              className="form-control"
+              id="formFileSm"
+              placeholder="name"
+              onChange={handleNameChange}
+            />
+          </div>
           <Stars />
         </div>
         <div className="mb-3">
