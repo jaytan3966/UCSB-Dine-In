@@ -78,6 +78,7 @@ import { createClient } from "@/utils/supabase/client"; // Adjust this import pa
 import styles from "./Review.module.css";
 import Stars from "./Stars/Stars";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link";
 
 const supabase = createClient();
 
@@ -91,6 +92,7 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
   const [descriptionSubmitted, setDescription] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
+  
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(e.target.value);
@@ -129,6 +131,8 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
       if (urlError) {
         throw urlError;
       }
+      food = food?.replaceAll(/%20/g, " ");
+      diningHall = diningHall?.replaceAll(/%20/g, " ");
 
       const response = await fetch("/api/routing", {
         method: "POST",
@@ -148,11 +152,12 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
         throw new Error("Failed to submit the review.");
       }
 
-      console.log("Review submitted successfully");
+      alert("Review submitted successfully");
 
       // Reset form state
       setDescription("");
       setSelectedFile(null);
+      window.location.href = `/hall/${diningHall}`;
     } catch (error) {
       console.error("Error uploading file:", error);
       alert("Error uploading file: " + (error as Error).message);
@@ -162,7 +167,17 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
   };
 
   return (
+    <div>
+      <div className="bg-[#1d2f54] p-3 flex justify-between items-center max-w-screen">
+        <Link href="/">
+          <button className="font-bold text-3xl text-[#ffce34]">
+            UCSB Dine-In
+          </button>
+        </Link>
+
+      </div>
     <div className={styles.card}>
+  
       <div className="flex space-x-2">
         <h2 className={styles["card-title"]}>Submit Review</h2>
         <Stars />
@@ -192,5 +207,7 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
         {uploading ? "Uploading..." : "Submit"}
       </button>
     </div>
+    </div>
+    
   );
 }
