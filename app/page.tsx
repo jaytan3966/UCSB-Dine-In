@@ -9,6 +9,7 @@ import Reviews from "./components/reviewsGrid";
 import { ReviewProps } from "./components/reviewsGrid";
 import Halls from "./components/halls";
 import Image from "next/image";
+import About from "./about/About";
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement | null>(null);
@@ -56,16 +57,7 @@ export default function Home() {
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={aboutRef}>About</h1>
         <hr className="w-[22vw] border-[#1d2f54]"/>
         
-        <div className="text-center justify-center items-center">
-          <div className="flex justify-center items-center text-center">
-            <Image src="https://media2.nekropole.info/2012/12/280px-Mao_Zedong_portrait.jpg" alt="Jayden Tan" width={360} height={360}/>
-            <div>
-              <h1 className="text-5xl">Jordan Junaidi - Clinton Nguyen - Phong Nguyen - Jayden Tan</h1>
-              <p className="p-4">As first years in college, we were disappointed by the inconsistencies of dining hall food and wanted to be able to a see how our peers thought of the food.</p>
-              <h2 className="text-center text-6xl font-semibold"> Today, our dream has come true.</h2>
-            </div>
-          </div>
-        </div>
+        <About />
       </main>
 
     </>
