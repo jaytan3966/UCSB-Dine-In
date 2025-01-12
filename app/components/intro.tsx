@@ -19,8 +19,7 @@ export const Intro = ({topRef, diningRef, aboutRef} : NavbarProps) => {
             <div className="flex flex-col justify-center items-center animate-right">
                 <h1 className="font-semibold pt-4 text-4xl text-[#1d2f54]">Let's be honest.</h1>
                 <p className="px-8 pt-4 text-center w-[100%] lg:w-[80%]">
-                  Dining hall food is hit or miss. One day, the tri-tip is shmackin. The next, the pork chop is dry as
-                  shit.
+                  Dining hall food is hit or miss. One day, the tri-tip is shmackin. The next, the pork chop is dry AF.
                 </p>
                 <h2 className="pt-4 text-2xl font-bold w-[80%] text-[#1d2f54]">
                   With UCSB Dine-In, you can find the top peer-reviewed food to make your next meal a more pleasant
