@@ -6,16 +6,14 @@ export async function GET(req: Request) {
       
         const { searchParams } = new URL(req.url);
         const date = searchParams.get('date'); 
-        const diningCommonCode = searchParams.get('dining-common-code'); 
-        const mealCode = searchParams.get('meal-code');
 
-        if (!date || !diningCommonCode || !mealCode) {
+        if (!date) {
             return NextResponse.json({ error: 'Missing required parameters' }, { status: 400 });
         }
 
         const apiKey = process.env.UCSB_API_KEY;
 
-        const url = `https://api.ucsb.edu/dining/menu/v1/${date}/${diningCommonCode}/${mealCode}`;
+        const url = `https://api.ucsb.edu/dining/menu/v1/${date}`;
         console.log('Making request to UCSB API with URL:', url);
 
 
