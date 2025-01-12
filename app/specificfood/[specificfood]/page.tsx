@@ -4,10 +4,12 @@ import { useParams } from "next/navigation";
 import ReviewCard from "@/app/components/Review/Review";
 import { useStarsState } from "@/app/components/Review/Stars/useStarsState";
 import { exportedHall } from "@/app/hall/[hall]/page";
+import ReviewList from "@/app/components/reviewList/reviewList";
 
 interface Params {
   specificFood: string;
 }
+
 export default function specificFood() {
   const { filledStars } = useStarsState();
   const params = useParams();
@@ -19,14 +21,14 @@ export default function specificFood() {
         ? params.specificfood[0]
         : undefined;
 
-  console.log(specificFood);
-  console.log(filledStars);
-
   return (
-    <ReviewCard
-      food={specificFood}
-      rating={filledStars}
-      diningHall={exportedHall}
-    />
+    <div>
+      <ReviewCard
+        food={specificFood}
+        rating={filledStars}
+        diningHall={exportedHall}
+      />
+      <ReviewList foodName={specificFood} />
+    </div>
   );
 }
