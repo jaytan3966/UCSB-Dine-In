@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-let filledStarsState = 2;
+let filledStarsState = 1;
 let listeners: Function[] = [];
 
 export const useStarsState = () => {
