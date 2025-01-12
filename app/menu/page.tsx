@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 interface MenuItem {
   name: string;
@@ -25,13 +26,19 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
   const day = now.getDay();
 
   if (day == 0 || day == 6) {
-    if (time < 14) { mealCode = "brunch"; } 
-    else if ( time < 21) { mealCode = "dinner" }
-  } 
-  else {
-    if (time < 10) { mealCode = "breakfast" } 
-    else if (time < 15) { mealCode = "lunch" } 
-    else if (time < 21) { mealCode = "dinner" }
+    if (time < 14) {
+      mealCode = "brunch";
+    } else if (time < 21) {
+      mealCode = "dinner";
+    }
+  } else {
+    if (time < 10) {
+      mealCode = "breakfast";
+    } else if (time < 15) {
+      mealCode = "lunch";
+    } else if (time < 21) {
+      mealCode = "dinner";
+    }
   }
 
   useEffect(() => {
@@ -64,9 +71,11 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
       {menu ? (
         <ul>
           {menu.map((item, index) => (
-            <li key={index}>
-              <strong>{item.name}</strong>
-            </li>
+            <Link key={index} href={`/specificfood/${item.name}`}>
+              <li key={index}>
+                <strong>{item.name}</strong>
+              </li>
+            </Link>
           ))}
         </ul>
       ) : (
