@@ -8,6 +8,8 @@ interface Params {
   hall: string;
 }
 
+let exportedHall: string | undefined;
+
 export default function Hall() {
   const params = useParams();
 
@@ -24,7 +26,11 @@ export default function Hall() {
   }
 
   if (hall === "De%20La%20Guerra") {
+    exportedHall = hall.toLowerCase();
     return <MenuPage diningCommonCode="de-la-guerra" />;
   }
+  exportedHall = hall.toLowerCase();
   return <MenuPage diningCommonCode={hall.toLowerCase()} />;
 }
+
+export { exportedHall };
