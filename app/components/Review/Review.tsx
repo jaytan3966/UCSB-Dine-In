@@ -88,13 +88,18 @@ interface ReviewCardProps {
   rating: number;
 }
 
-export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps) {
+export default function ReviewCard({
+  food,
+  diningHall,
+  rating,
+}: ReviewCardProps) {
   const [descriptionSubmitted, setDescription] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
-  
 
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setDescription(e.target.value);
   };
 
@@ -114,23 +119,18 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
     setUploading(true);
 
     try {
-      const { data, error: uploadError } = await supabase
-        .storage
-        .from('images') 
+      const { data, error: uploadError } = await supabase.storage
+        .from("images")
         .upload(fileName, selectedFile);
 
       if (uploadError) {
         throw uploadError;
       }
 
-      const { data: publicURL, error: urlError } = await supabase
-        .storage
-        .from('images')
+      const { data: publicURL } = await supabase.storage
+        .from("images")
         .getPublicUrl(fileName);
 
-      if (urlError) {
-        throw urlError;
-      }
       food = food?.replaceAll(/%20/g, " ");
       diningHall = diningHall?.replaceAll(/%20/g, " ");
 
@@ -174,40 +174,42 @@ export default function ReviewCard({ food, diningHall, rating }: ReviewCardProps
             UCSB Dine-In
           </button>
         </Link>
-
       </div>
-    <div className={styles.card}>
-  
-      <div className="flex space-x-2">
-        <h2 className={styles["card-title"]}>Submit Review</h2>
-        <Stars />
+      <div className={styles.card}>
+        <div className="flex space-x-2">
+          <h2 className={styles["card-title"]}>Submit Review</h2>
+          <Stars />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="formFileSm" className="form-label">
+            Submit picture file
+          </label>
+          <input
+            className="form-control form-control-sm"
+            id="formFileSm"
+            type="file"
+            onChange={handleFileChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleFormControlTextarea1">Comments</label>
+          <textarea
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            rows={10}
+            value={descriptionSubmitted}
+            onChange={handleDescriptionChange}
+          ></textarea>
+        </div>
+        <button
+          type="button"
+          className="btn btn-dark"
+          onClick={handleSubmit}
+          disabled={uploading}
+        >
+          {uploading ? "Uploading..." : "Submit"}
+        </button>
       </div>
-      <div className="mb-3">
-        <label htmlFor="formFileSm" className="form-label">
-          Submit picture file
-        </label>
-        <input
-          className="form-control form-control-sm"
-          id="formFileSm"
-          type="file"
-          onChange={handleFileChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="exampleFormControlTextarea1">Comments</label>
-        <textarea
-          className="form-control"
-          id="exampleFormControlTextarea1"
-          rows={10}
-          value={descriptionSubmitted}
-          onChange={handleDescriptionChange}
-        ></textarea>
-      </div>
-      <button type="button" className="btn btn-dark" onClick={handleSubmit} disabled={uploading}>
-        {uploading ? "Uploading..." : "Submit"}
-      </button>
     </div>
-    </div>
-    
   );
 }
