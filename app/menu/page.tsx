@@ -17,7 +17,7 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<string | null>(null);
 
-  let mealCode = "dinner";
+  let mealCode = "brunch";
 
   const now = new Date();
   // const date = now.toLocaleDateString("en-CA");
