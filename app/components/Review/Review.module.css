@@ -7,7 +7,7 @@
   margin: 20px;
   text-align: left;
   max-width: 40vw;
-  height: 32vw;
+  height: 33vw;
   background-color: #f7f7f7;
   transition:
     transform 0.3s ease,
@@ -17,10 +17,6 @@
   flex-direction: column;
   align-items: left;
   justify-content: left;
-}
-
-.bottom-pad {
-  padding-bottom: 15px;
 }
 
 .card:hover {
