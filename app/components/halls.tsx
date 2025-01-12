@@ -17,9 +17,13 @@ export default function Halls() {
   let text = 'Closed';
 
   const now = new Date();
-  const date = now.toLocaleDateString('en-CA');
-  const curr = now.getHours();
-  const day = now.getDay();
+  // const date = now.toLocaleDateString('en-CA');
+  // const curr = now.getHours();
+  // const day = now.getDay();
+
+  const date = '2025-01-12';
+  const curr = 12;
+  const day = 0;
 
   if (day === 0 || day === 6) {
     for (let i = 0; i < weekendtimes.length; i += 2) {
