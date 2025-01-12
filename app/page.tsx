@@ -24,7 +24,7 @@ export default function Home() {
           let reviewz = await response.json();
           reviewz.sort((i: ReviewProps, j: ReviewProps) => j.rating - i.rating);
           reviewz = reviewz.slice(0,5);
-
+      
           setReviews(reviewz);
         } else {
           console.error("Failed to fetch reviews");
@@ -36,6 +36,7 @@ export default function Home() {
     getReviews();
     console.log(reviews);
   }, [])
+
   return (
     <>
       <header className="sticky top-0 z-10">
@@ -73,6 +74,7 @@ export default function Home() {
         <h1>hello</h1>
         <h1>hello</h1>
       </main>
+
     </>
   );
 }
