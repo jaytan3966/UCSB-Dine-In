@@ -7,7 +7,7 @@ export const Card = (review: ReviewProps) => {
   console.log("Image URL in Card:", review.url);
 
   return (
-    <div className="m-5">
+    <div className="mx-2">
       <div className={styles.card}>
         <Image
           className={styles["card-image"]}

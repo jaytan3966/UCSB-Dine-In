@@ -1,7 +1,7 @@
 "use client";
 
 import MenuPage from "../../menu/page";
-
+import Link from "next/link";
 import { useParams } from "next/navigation";
 
 interface Params {
@@ -22,7 +22,21 @@ export default function Hall() {
 
   console.log(hall?.toLowerCase());
   if (!hall) {
-    return <div>Error: Invalid Hall</div>;
+    return (
+      <div>
+      <div className="bg-[#1d2f54] p-3 flex justify-between items-center max-w-screen">
+          <Link href="/">
+            <button className="font-bold text-3xl text-[#ffce34]">
+              UCSB Dine-In
+            </button>
+          </Link>
+          
+        </div>
+        <div className="text-center">
+          <h1 className="text-9xl">CLOSED</h1>
+        </div>
+      </div>
+    );
   }
 
   if (hall === "De%20La%20Guerra") {
