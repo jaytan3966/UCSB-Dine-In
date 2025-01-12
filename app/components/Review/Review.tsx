@@ -77,6 +77,7 @@ import { useState } from "react";
 import { createClient } from "@/utils/supabase/client"; // Adjust this import path based on your structure
 import styles from "./Review.module.css";
 import Stars from "./Stars/Stars";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const supabase = createClient();
 
