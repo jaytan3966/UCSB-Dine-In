@@ -10,10 +10,6 @@ export interface ReviewProps {
 }
 
 export default function Reviews({reviews}: {reviews: ReviewProps[]}) {
-  const handleReview = (review: ReviewProps) => {
-   
-    console.log(review);
-  };
   
   return (
     <div className="grid grid-cols-5">
