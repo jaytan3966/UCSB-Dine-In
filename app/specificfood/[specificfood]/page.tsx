@@ -2,11 +2,13 @@
 
 import { useParams } from "next/navigation";
 import ReviewCard from "@/app/components/Review/Review";
+import { useStarsState } from "@/app/components/Review/Stars/useStarsState";
 
 interface Params {
   specificFood: string;
 }
 export default function specificFood() {
+  const { filledStars } = useStarsState();
   const params = useParams();
 
   const specificFood =
@@ -17,6 +19,7 @@ export default function specificFood() {
         : undefined;
 
   console.log(specificFood);
+  console.log(filledStars);
 
   return <ReviewCard food={specificFood} diningHall="test" />;
 }
