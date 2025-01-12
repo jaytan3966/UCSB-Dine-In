@@ -56,12 +56,6 @@ export default function Reviews({reviews}: {reviews: ReviewProps[]}) {
     fetchImageUrls();
   }, [reviews]);
 
-  
-
-  
-
-
-  
   return (
     <div className="grid grid-cols-5">
       {reviewsWithImageUrls.map((review) => (
