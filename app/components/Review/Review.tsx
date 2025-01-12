@@ -1,17 +1,41 @@
 import Link from "next/link";
 import styles from "./Review.module.css";
 import Stars from "./Stars/Stars";
+import { useState } from "react";
+import { POST } from "../../api/routing/route";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-interface Review {
-  name: string;
+interface ReviewCardProps {
+  food: string | undefined;
+  diningHall: string | undefined;
 }
+export default function ReviewCard({ food, diningHall }: ReviewCardProps) {
+  const [descriptionSubmitted, setDescription] = useState("");
 
-export default function ReviewCard({ name }: Review) {
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setDescription(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    const response = await fetch("/api/routing", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        description: descriptionSubmitted,
+        foodName: food,
+        diningcommon: diningHall,
+      }),
+    });
+  };
+
   return (
     <div className={styles.card}>
       <div className="flex space-x-2">
-        <h2 className={styles["card-title"]}>{name}</h2>
+        <h2 className={styles["card-title"]}>test</h2>
         <Stars />
       </div>
       <div className="mb-3">
@@ -30,9 +54,11 @@ export default function ReviewCard({ name }: Review) {
           className="form-control"
           id="exampleFormControlTextarea1"
           rows={10}
+          value={descriptionSubmitted}
+          onChange={handleDescriptionChange}
         ></textarea>
       </div>
-      <button type="button" className="btn btn-dark">
+      <button type="button" className="btn btn-dark" onClick={handleSubmit}>
         Submit
       </button>
     </div>
