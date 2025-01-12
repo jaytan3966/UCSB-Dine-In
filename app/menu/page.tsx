@@ -66,7 +66,22 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
   }, [date, diningCommonCode, mealCode]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Closed</p>;
+  if (error) return (
+    <div>
+      <div className="bg-[#1d2f54] p-3 flex justify-between items-center max-w-screen">
+          <Link href="/">
+            <button className="font-bold text-3xl text-[#ffce34]">
+              UCSB Dine-In
+            </button>
+          </Link>
+          
+        </div>
+        <div className="text-center">
+          <h1 className="text-9xl">CLOSED</h1>
+        </div>
+      </div>
+      
+  );
 
   return (
     <div>

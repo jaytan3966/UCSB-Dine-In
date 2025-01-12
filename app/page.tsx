@@ -48,13 +48,13 @@ export default function Home() {
         <Intro topRef={topRef} diningRef={diningRef} aboutRef={aboutRef}/>
         
 
-        <h1 className="font-semibold text-2xl p-2 pt-10 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
+        <h1 className="font-semibold text-2xl pt-10 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
         <hr className="w-[22vw] border-[#1d2f54]"/>
         <Reviews reviews={topreviews}/>
-        <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={diningRef}>Dining Commons</h1>
+        <h1 className="font-semibold text-2xl text-[#1d2f54]" ref={diningRef}>Dining Commons</h1>
         <hr className="w-[22vw] border-[#1d2f54]"/>
         <Halls />
-        <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={aboutRef}>About</h1>
+        <h1 className="font-semibold text-2xl text-[#1d2f54]" ref={aboutRef}>About</h1>
         <hr className="w-[22vw] border-[#1d2f54]"/>
         
         <About />
