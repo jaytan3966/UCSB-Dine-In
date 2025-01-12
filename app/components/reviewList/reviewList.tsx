@@ -29,7 +29,7 @@ export default function ReviewList({ foodName }: ReviewListProps) {
   }, [foodName]);
 
   if (response.length === 0) {
-    return <p>No reviews yet for this item.</p>;
+    return <p className="text-white">No reviews yet for this item.</p>;
   }
 
   // return (
