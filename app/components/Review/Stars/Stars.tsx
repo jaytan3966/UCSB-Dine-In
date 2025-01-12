@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useStarsState } from "./useStarsState";
 
 export default function Stars() {
-  const [filledStars, setFilledStars] = useState(0); // Tracks the number of filled stars
+  const { filledStars, setFilledStars } = useStarsState();
 
   const handleStarClick = (index: number) => {
     setFilledStars(index + 1); // Update the number of filled stars based on click
