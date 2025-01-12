@@ -67,17 +67,31 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
 
   return (
     <div>
-      <h1>Dining Menu </h1>
+      <div className="bg-[#1d2f54] p-3 flex justify-between items-center max-w-screen">
+        <Link href="/">
+          <button className="font-bold text-3xl text-[#ffce34]">
+            UCSB Dine-In
+          </button>
+        </Link>
+
+        <h1 className="text-white text-2xl font-semibold">
+          {diningCommonCode} {mealCode} meal
+        </h1>
+      </div>
       {menu ? (
-        <ul>
+        <div className="grid grid-cols-4">
           {menu.map((item, index) => (
-            <Link key={index} href={`/specificfood/${item.name}`}>
-              <li key={index}>
+            <Link
+              key={index}
+              href={`/specificfood/${item.name}`}
+              className="box rounded h-[12vh] m-2 flex justify-center items-center no-underline bg-[#c1dce9] text-black shadow hover:scale-105 duration-300 delay-150 animate-left"
+            >
+              <div key={index}>
                 <strong>{item.name}</strong>
-              </li>
+              </div>
             </Link>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No menu data available.</p>
       )}
