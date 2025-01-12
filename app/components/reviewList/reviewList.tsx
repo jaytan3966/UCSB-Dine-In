@@ -33,15 +33,21 @@ export default function ReviewList({ foodName }: ReviewListProps) {
   }
 
   return (
-    <div>
-      {response.map((review, index) => (
-        <ListItem
-          key={index}
-          username={review.username}
-          rating={review.rating}
-          description={review.description}
-        />
-      ))}
+    <div className="flex flex-col items-center justify-center">
+      {response.map((review, index) => {
+        const imageUrl = review.images
+          ? `https://ggntzuglwinvqliprmts.supabase.co/storage/v1/object/public/images/${review.images}`
+          : null;
+        return (
+          <ListItem
+            key={index}
+            username={review.username}
+            rating={review.rating}
+            description={review.description}
+            url={imageUrl}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -22,13 +22,54 @@ export default function specificFood() {
         : undefined;
 
   return (
-    <div>
-      <ReviewCard
-        food={specificFood}
-        rating={filledStars}
-        diningHall={exportedHall}
-      />
-      <ReviewList foodName={specificFood} />
+    <div
+      className="flex-container"
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        height: "100vh", // Full viewport height
+        overflow: "hidden", // Prevent overall scrolling
+        backgroundColor: "#1d2f54",
+      }}
+    >
+      {/* Left Side - Fixed */}
+      <div
+        className="flex-item"
+        style={{
+          width: "40%",
+          boxSizing: "border-box",
+          overflow: "hidden", // Prevent scrolling
+        }}
+      >
+        <ReviewCard
+          food={specificFood}
+          rating={filledStars}
+          diningHall={exportedHall}
+        />
+      </div>
+
+      {/* Right Side - Scrollable */}
+      <div
+        className="flex-item"
+        style={{
+          width: "60%",
+          overflowY: "scroll", // Enable vertical scrolling
+          boxSizing: "border-box",
+        }}
+      >
+        <div
+          data-bs-spy="scroll"
+          data-bs-target="#navbar-example2"
+          data-bs-offset="0"
+          className="scrollspy-example"
+          tabIndex="0"
+        >
+          <div className="bg-[#1d2f54] p-2 text-center h-[100vh]">
+            <h1 className="text-5xl font-semibold text-[#ffce34]">Reviews</h1>
+            <ReviewList foodName={specificFood} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
