@@ -14,7 +14,7 @@ export default function Home() {
   const diningRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
 
-  const [reviews, setReviews] = useState<ReviewProps[]>([]);
+  const [topreviews, setReviews] = useState<ReviewProps[]>([]);
 
   useEffect(() => {
     async function getReviews(){
@@ -34,7 +34,6 @@ export default function Home() {
       }
     }
     getReviews();
-    console.log(reviews);
   }, [])
 
   return (
@@ -49,7 +48,7 @@ export default function Home() {
 
         <h1 className="font-semibold text-2xl p-2 pt-6 text-[#1d2f54]" ref={topRef}>Highest Rated Foods</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
-        <Reviews reviews={reviews}/>
+        <Reviews reviews={topreviews}/>
         <h1 className="font-semibold text-2xl p-2 text-[#1d2f54]" ref={diningRef}>Dining Commons</h1>
         <hr className="w-[22vw] border-[#1d2f54] p-2"/>
         <Halls />
