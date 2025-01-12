@@ -7,9 +7,11 @@
     padding: 20px;
     margin: 20px;
     text-align: center;
-    max-width: 25vw;
+    max-width: 26vw;
     background-color: #c1dce9;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 28vh;
+    
   }
   
   .card:hover {
@@ -20,7 +22,7 @@
   /* Card image styling */
   .card-image {
     width: 100%;
-    height: auto;
+    height: 150px;
     border-radius: 8px;
     object-fit: cover; /* Ensures the image covers the space without distortion */
     transition: opacity 0.3s ease;

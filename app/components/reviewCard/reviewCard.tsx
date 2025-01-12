@@ -18,7 +18,6 @@ export const Card = (review: ReviewProps) => {
         />
         <h1 className={styles["card-title"]}>{review.foodName}</h1>
         <div className={styles["card-text"]}>
-          <p>by {review.username}</p>
           <p>{review.rating} Stars</p>
         </div>
       </div>

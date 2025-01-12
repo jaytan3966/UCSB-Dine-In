@@ -105,11 +105,12 @@ export default function About() {
       </div>
       <div className="flex-item">
         <div className={styles.card}>
-          <h1>Jordan Junaidi Clinton Nguyen Phong Nguyen - Jayden Tan</h1>
-          <p>
-            As first years in college, we were disappointed by the
-            inconsistencies of dining hall food and wanted to be able to see how
-            our peers thought of the food.
+          <h1>Jordan Junaidi</h1>
+          <h1>Clinton Nguyen</h1>
+          <h1>Phong Nguyen</h1>
+          <h1>Jayden Tan</h1>
+          <p className="text-1xl font-bold">
+            We haven't had the best experience with dining hall food (besides at UCLA). We decided to take matters into our own hands. Hope you enjoy UCSB Dine-In!
           </p>
         </div>
       </div>
