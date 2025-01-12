@@ -1,4 +1,4 @@
-import { Card } from "./reviewCard";
+import { Card } from "./reviewCard/reviewCard";
 
 export interface ReviewProps {
   id: number;
@@ -9,12 +9,11 @@ export interface ReviewProps {
   diningcommon: string;
 }
 
-export default function Reviews({reviews}: {reviews: ReviewProps[]}) {
+export default function Reviews({ reviews }: { reviews: ReviewProps[] }) {
   const handleReview = (review: ReviewProps) => {
-   
     console.log(review);
   };
-  
+
   return (
     <div className="grid grid-cols-5">
       {reviews?.map((review) => (
