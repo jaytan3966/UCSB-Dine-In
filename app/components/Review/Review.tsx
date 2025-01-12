@@ -190,12 +190,12 @@ export default function ReviewCard({
           {/* <h2 className={styles["card-title"]}>Submit Review</h2> */}
           <div className="form-group">
             <label htmlFor="formFileSm" className="form-label">
-              Name
+              Name?
             </label>
             <input
               type="name"
               className="form-control"
-              id="formFileSm"
+              id="exampleFormControlInput1"
               placeholder="name"
               onChange={handleNameChange}
             />
