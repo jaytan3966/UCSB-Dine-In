@@ -47,4 +47,3 @@ export default function Hall() {
   return <MenuPage diningCommonCode={hall.toLowerCase()} />;
 }
 
-export { exportedHall };
