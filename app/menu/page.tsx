@@ -11,7 +11,7 @@ interface MenuPageProps {
   diningCommonCode: string;
 }
 
-const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
+export default function MenuPage ({ diningCommonCode }: MenuPageProps){
   const [menu, setMenu] = useState<MenuItem[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -114,4 +114,3 @@ const MenuPage = ({ diningCommonCode }: MenuPageProps) => {
   );
 };
 
-export default MenuPage;
