@@ -57,12 +57,12 @@ export default function ReviewCard({
         throw uploadError;
       }
 
-      const { data: publicURL, error: urlError } = await supabase.storage
+      const { data: publicURL} = supabase.storage
         .from("images")
         .getPublicUrl(fileName);
 
-      if (urlError) {
-        throw urlError;
+      if (!publicURL) {
+        throw new Error("Failed to get public URL");;
       }
       food = food?.replaceAll(/%20/g, " ");
       diningHall = diningHall?.replaceAll(/%20/g, " ");
