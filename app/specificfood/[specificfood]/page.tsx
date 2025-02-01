@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import ReviewCard from "@/app/components/Review/Review";
 import { useStarsState } from "@/app/components/Review/Stars/useStarsState";
 import ReviewList from "@/app/components/reviewList/reviewList";
+import { exportedHall } from "@/app/hall/[hall]/page";
 
 interface Params {
   specificFood: string;
@@ -43,11 +44,9 @@ export default function specificFood() {
         <ReviewCard
           food={specificFood}
           rating={filledStars}
-          diningHall="Carrillo"
+          diningHall={exportedHall}
         />
       </div>
-
-      {/* Right Side - Scrollable */}
       <div
         className="flex-item"
         style={{
