@@ -3,7 +3,6 @@
 import { useParams } from "next/navigation";
 import ReviewCard from "@/app/components/Review/Review";
 import { useStarsState } from "@/app/components/Review/Stars/useStarsState";
-import { getHall } from "@/app/hall/[hall]/page";
 import ReviewList from "@/app/components/reviewList/reviewList";
 
 interface Params {
@@ -44,7 +43,7 @@ export default function specificFood() {
         <ReviewCard
           food={specificFood}
           rating={filledStars}
-          diningHall={getHall()}
+          diningHall="Carrillo"
         />
       </div>
 
