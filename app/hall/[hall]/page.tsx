@@ -1,6 +1,6 @@
 "use client";
 
-import MenuPage from "../../menu/page";
+import MenuPage from "@/app/components/MenuPage";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
