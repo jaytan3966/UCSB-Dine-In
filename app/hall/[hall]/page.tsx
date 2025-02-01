@@ -22,7 +22,6 @@ export default function Hall() {
 
   console.log(hall?.toLowerCase());
   if (!hall) {
-    exportedHall = "CLOSED";
     return (
       <div>
       <div className="bg-[#1d2f54] p-3 flex justify-between items-center max-w-screen">
@@ -48,4 +47,6 @@ export default function Hall() {
   return <MenuPage diningCommonCode={hall.toLowerCase()} />;
 }
 
-export {exportedHall};
+export function getHall(){
+  return exportedHall;
+}
