@@ -17,13 +17,9 @@ export default function Halls() {
   let text = 'Closed';
 
   const now = new Date();
-  // const date = now.toLocaleDateString('en-CA');
-  // const curr = now.getHours();
-  // const day = now.getDay();
-
-  const date = '2025-01-12';
-  const curr = 12;
-  const day = 0;
+  const date = now.toLocaleDateString('en-CA');
+  const curr = now.getHours();
+  const day = now.getDay();
 
   if (day === 0 || day === 6) {
     for (let i = 0; i < weekendtimes.length; i += 2) {
@@ -41,10 +37,10 @@ export default function Halls() {
     }
   }
 
-  const [carrilloOpen, setCarrilloOpen] = useState<boolean | null>(null);
-  const [delaguerraOpen, setDelaguerraOpen] = useState<boolean | null>(null);
-  const [ortegaOpen, setOrtegaOpen] = useState<boolean | null>(null);
-  const [portolaOpen, setPortolaOpen] = useState<boolean | null>(null);
+  const [carrilloOpen, setCarrilloOpen] = useState<boolean | null>(false);
+  const [delaguerraOpen, setDelaguerraOpen] = useState<boolean | null>(false);
+  const [ortegaOpen, setOrtegaOpen] = useState<boolean | null>(false);
+  const [portolaOpen, setPortolaOpen] = useState<boolean | null>(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
