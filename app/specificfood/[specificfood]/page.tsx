@@ -61,7 +61,7 @@ export default function specificFood() {
           data-bs-target="#navbar-example2"
           data-bs-offset="0"
           className="scrollspy-example"
-          tabIndex="0"
+          tabIndex={0}
         >
           <div className="bg-[#1d2f54] p-2 text-center h-[100vh]">
             <h1 className="text-5xl font-semibold text-[#ffce34]">Reviews</h1>
